@@ -1,10 +1,10 @@
 # 2021 데이터청년캠퍼스 고려대학교 과정 4조
 
 ## 팀 소개(Team Members)
-- 박근형(https://github.com/park-geun-hyeong)
+-  박근형(https://github.com/park-geun-hyeong)
 - 손소영
 - 이정훈(Jung-hoon Lee / https://github.com/hoonww)
-- 이종현
+- 이종현 (https://github.com/tomtom1103)
 - 정세연
 
 ## 프로젝트 소개(About project)
