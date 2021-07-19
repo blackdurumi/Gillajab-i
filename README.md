@@ -7,7 +7,7 @@
 - 이종현 (https://github.com/tomtom1103)
 - 정세연 (https://github.com/Seyeon-Jeong)
 
-## 프로젝트 소개(About project)
+## 프로젝트 소개(About Project)
 - Project Name : 외국 청소년을 대상으로 한 한류 아이돌 컨텐츠를 이용한 한국어 발음 능력 향상 서비스
 - Description
 +추후 pdf
