@@ -16,6 +16,7 @@
 ### data : 데이터 수집
 - pytube: pytube library를 사용하여 유튜브 영상에서 음원추출
 - pytube_GUI: pytube와 tkinter를 사용하여 url입력후 버튼을 누르면 자동으로 음원을 추출해주는 GUI환경 구성
+- crawling: pytube와 selenium, bs4를 사용하여 유튜브 검색 후 영상에서 음원, 자막 추출
 ### document : 프리젠테이션 파일, 아이디어 기획 문서 등등
 
 
