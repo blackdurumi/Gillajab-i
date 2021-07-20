@@ -12,6 +12,7 @@ warnings.filterwarnings(action='ignore')
 get_ipython().run_line_magic('load_ext', 'watermark')
 get_ipython().run_line_magic('watermark', '-asoyeong -d -n -v -ppytube,bs4,selenium')
 
+# get_driver - 드라이버 가져오기
 def get_driver():
     options = ChromeOptions()
     options.add_argument('headless')
@@ -20,13 +21,27 @@ def get_driver():
     driver = Chrome(options=options)
     return driver
 
-# search 함수 - 검색 결과 page source 리턴
+# search - 검색 결과 page source 리턴
 def search(keyword):
     driver = get_driver()
     
     url = 'https://www.youtube.com/results?search_query=' + keyword
     driver.get(url)
-    # 무한 스크롤 삽입해야함
+    
+    last_page_height = driver.execute_script("return document.documentElement.scrollHeight")
+    
+    for i in range(0, 100): # 스크롤 100번까지로 제한
+        driver.execute_script("window.scrollTo(0, document.documentElement.scrollHeight);")
+        
+        time.sleep(3)
+        
+        
+        new_page_height = driver.execute_script("return document.documentElement.scrollHeight")
+        
+        if new_page_height == last_page_height:
+            break
+            
+        last_page_height = new_page_height
         
     dom = BeautifulSoup(driver.page_source, 'lxml')
     return dom
@@ -38,6 +53,7 @@ def get_url():
     url = ['https://www.youtube.com' + h for h in href]
     return url
 
+# chk_cap - 한국어 자막 유무 체크 (없으면 None 리턴)
 def chk_cap(yt):
     lang = 'ko'
     yt_cap = yt.captions.get_by_language_code(lang)
@@ -54,12 +70,14 @@ def get_audio():
                 print(yt.streams.filter(only_audio=True))
                 out_file=yt.streams.filter(only_audio=True).first().download(output_path=path)
                 base, ext = os.path.splitext(out_file)
+                # mp3로 변환
                 new_file = base + '.mp3'
                 os.rename(out_file, new_file)
                 print(yt.title + " 다운로드 완료")
         except Exception:
             continue
 
+# get_cap - pytube 라이브러리를 사용하여 자막 파일 받아오기
 def get_cap():
     path = 'C:/Users/USER/Desktop/STUDY/데이터 청년 캠퍼스/project/caption'
     url = get_url()
@@ -70,6 +88,7 @@ def get_cap():
                 print(yt.captions.all())
                 out_file = yt.captions['ko'].download(title=yt.title, output_path=path)
                 base, ext = os.path.splitext(out_file)
+                # txt 파일로 변환
                 new_file = base + '.txt'
                 os.rename(out_file, new_file)
                 print(yt.title + " 다운로드 완료")
