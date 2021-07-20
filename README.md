@@ -1,3 +1,5 @@
+![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=250&section=header&text=📕2021%20데이터청년캠퍼스%20고려대학교%20과정%204조&fontSize=40)
+
 # 2021 데이터청년캠퍼스 고려대학교 과정 4조
 
 ## 팀 소개(Team Members)
