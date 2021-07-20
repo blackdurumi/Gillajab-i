@@ -63,6 +63,7 @@ def chk_cap(yt):
 def get_audio():
     path = 'C:/Users/USER/Desktop/STUDY/데이터 청년 캠퍼스/project/audio'
     url = get_url()
+    url = list(set(url)) # 중복 제거
     for _ in url:
         try:
             yt = YouTube(_)
@@ -81,6 +82,7 @@ def get_audio():
 def get_cap():
     path = 'C:/Users/USER/Desktop/STUDY/데이터 청년 캠퍼스/project/caption'
     url = get_url()
+    url = list(set(url)) # 중복 제거
     for _ in url:
         try:
             yt = YouTube(_)
