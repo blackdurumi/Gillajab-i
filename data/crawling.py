@@ -18,8 +18,8 @@ warnings.filterwarnings(action='ignore')
 # get_driver - 드라이버 가져오기
 def get_driver():
     options = ChromeOptions()
-    options.add_argument('headless')
-    options.add_argument('disable-gpu')
+    options.add_argument('headless') #창이 뜨지 않게 처리
+    options.add_argument('disable-gpu') #창 크기 조절
     # options.add_argument(
     #     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36')
     driver = Chrome(options=options)
