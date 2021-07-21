@@ -7,7 +7,7 @@ from selenium.webdriver import Chrome, ChromeOptions
 import time
 import os
 import warnings
-import datetime
+import glob
 
 warnings.filterwarnings(action='ignore')
 
@@ -30,11 +30,20 @@ def search(keyword):
     url = 'https://www.youtube.com/results?search_query=' + keyword
     driver.get(url)
 
-    start = datetime.datetime.now()
-    end = start+datetime.timedelta(seconds=100)
-    while datetime.datetime.now()<=end:
-        driver.execute_script('window.scrollTo(0, document.body.scrollHeight);')
-        time.sleep(3)
+    # last_page_height = driver.execute_script("return document.documentElement.scrollHeight")
+    #
+    # pages = 10
+    # for i in range(pages):  # 스크롤 100번까지로 제한
+    #     driver.execute_script("window.scrollTo(0, document.documentElement.scrollHeight);")
+    #
+    #     # time.sleep(3)
+    #
+    #     new_page_height = driver.execute_script("return document.documentElement.scrollHeight")
+    #
+    #     if new_page_height*i > last_page_height:
+    #         break
+    #
+    #     last_page_height = new_page_height
 
     dom = BeautifulSoup(driver.page_source, 'lxml')
     return dom
@@ -45,7 +54,6 @@ def get_url(keyword):
     dom = search(keyword)
     href = [a.attrs['href'] for a in dom.select('a#video-title')]
     url = ['https://www.youtube.com' + h for h in href]
-    url = list(set(url))  # 중복 제거
     return url
 
 
@@ -55,10 +63,13 @@ def chk_cap(yt):
     yt_cap = yt.captions.get_by_language_code(lang)
     return yt_cap
 
-
-# get_audio - pytube 라이브러리를 사용하여 오디오 파일 받아오기
-def get_audio(url):
-    path = './audio_data/'
+# get_data - pytube 라이브러리를 사용하여 오디오, 자막 파일 받아오기
+def get_data():
+    # 경로 설정
+    audio_path = './audio_data/'
+    cap_path = './caption/'
+    url = get_url()
+    url = list(set(url)) # 중복 제거
     for _ in url:
         try:
             yt = YouTube(_)
@@ -78,8 +89,8 @@ def get_audio(url):
                 os.rename(out_file, new_file)
                 print(yt.title + ".txt has been successfully downloaded")
         except Exception:
-            continue
-
+            continue            
+            
 
 if __name__ == "__main__":
     f = open("search_keywords.txt", "r") # reading keyword list file

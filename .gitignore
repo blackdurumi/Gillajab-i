@@ -1,5 +1,7 @@
+chromedriver.exe
+
 data/audio_data
 
 data/caption
 
-.idea
+*_checkpoints
