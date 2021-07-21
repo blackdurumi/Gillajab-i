@@ -63,6 +63,7 @@ def chk_cap(yt):
     yt_cap = yt.captions.get_by_language_code(lang)
     return yt_cap
 
+# get_data - pytube 라이브러리를 사용하여 오디오, 자막 파일 받아오기
 def get_data():
     # 경로 설정
     audio_path = './audio_data/'
