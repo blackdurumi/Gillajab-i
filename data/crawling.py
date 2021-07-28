@@ -63,7 +63,7 @@ def get_data(url):
     for _ in url:
         try:
             yt = YouTube(_)
-            if chk_cap(yt) != None and yt.length < 1200: # 한글 자막이 있고 20분 이내인 동영상일 경우
+            if chk_cap(yt) is not None and yt.length < 1200: # 한글 자막이 있고 20분 이내인 동영상일 경우
                 # 오디오 다운로드
                 print(yt.streams.filter(only_audio=True))
                 out_file=yt.streams.filter(only_audio=True).first().download(output_path=audio_path)
