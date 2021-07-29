@@ -21,7 +21,9 @@
 - crawling: pytube와 selenium, bs4를 사용하여 유튜브 검색 후 영상에서 음원, 자막 추출
 ### document : 프리젠테이션 파일, 아이디어 기획 문서 등등
 
-
+### pitch_contour: 음성데이터들의 pitch_contour 비교
+- pitch_contour_1 : 기존의 음성데이터와 새롭게 녹음한 음성데이터 amplitude 시각화 & spectorgram, intensity, pitch 비교해보기
+- 
 정훈) 조금씩 채워봅시다
 남기고 싶은 말도 이렇게 써놓고 나중에 지우면 됨
 
