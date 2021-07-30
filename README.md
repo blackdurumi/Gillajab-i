@@ -22,8 +22,8 @@
 ### document : 프리젠테이션 파일, 아이디어 기획 문서 등등
 
 ### pitch_contour: 음성데이터들의 pitch_contour 비교
-- pitch_contour_1 : 기존의 음성데이터와 새롭게 녹음한 음성데이터 amplitude 시각화 & spectorgram, intensity, pitch 비교해보기
-- pitch_contour_2 : pitch_contour_2에서 진행해보았던 내용들을 함수로 일반화시켜 보았고, 추가로 차이가 큰 부분들을 error part를 가정하여 해당하는 time들과 slicing되어진 sample값들을 구하                     기(ipd.Audio함수를 통해 error part를 직접 )
+- <b>pitch_contour_1</b> : 기존의 음성데이터와 새롭게 녹음한 음성데이터 amplitude 시각화 & spectorgram, intensity, pitch 비교해보기
+- <b>pitch_contour_2</b> : pitch_contour_1에서 진행해보았던 내용들을 함수로 일반화시켜 보았고, 추가로 차이가 큰 부분들을 error part를 가정하여 해당하는 time들과 slicing되어진 sample값들을 구하기(ipd.Audio함수를 통해 error part를 직접 들어보았다.)
 
 정훈) 조금씩 채워봅시다
 남기고 싶은 말도 이렇게 써놓고 나중에 지우면 됨
