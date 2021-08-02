@@ -7,10 +7,10 @@ import urllib.request
 client_id = "PEDMV9jlEiGwITMbVl9S" # 개발자센터에서 발급받은 Client ID 값
 client_secret = "0y7PXg98mI" # 개발자센터에서 발급받은 Client Secret 값
 
-if __name__=="__main__":
-    korstring = "여기에 해석할 한글 문장이 들어가면 됨"
+def translate(korstring):
+    string = korstring
 
-    encText = urllib.parse.quote(korstring)
+    encText = urllib.parse.quote(string)
     data = "source=ko&target=en&text=" + encText
     url = "https://openapi.naver.com/v1/papago/n2mt"
     request = urllib.request.Request(url)

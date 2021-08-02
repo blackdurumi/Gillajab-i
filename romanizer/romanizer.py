@@ -1,6 +1,6 @@
-!pip install korean_romanizer
-!pip install g2pk
-!pip install pororo
+# !pip install korean_romanizer
+# !pip install g2pk
+# !pip install pororo
 
 from korean_romanizer.romanizer import Romanizer
 from pororo import Pororo
