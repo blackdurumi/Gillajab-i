@@ -20,6 +20,6 @@ def translate(korstring):
     rescode = response.getcode()
     if rescode==200:
         response_body = json.load(response)
-        print(response_body['message']['result']['translatedText'])
+        return response_body['message']['result']['translatedText']
     else:
-        print("Error Code:" + rescode)
+        return "Error Code: {}".format(rescode)
