@@ -1,11 +1,11 @@
 # !pip install youtube-dl
 # !pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib
 
+from __future__ import unicode_literals
 from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from oauth2client.tools import argparser
 import os.path
-from __future__ import unicode_literals
 import youtube_dl
 # from google.colab import drive # 코랩 안 쓰면 필요 없음
 # drive.mount('/content/drive')
