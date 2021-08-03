@@ -10,6 +10,10 @@ class KoreanRomanizer:
     self.sent = ""
     print("Romanizer Initialized")
   def romanize(self, sent):
+    """
+    Returns converted Korean sentences into Romaji as pronounced.
+    parameter: sent(str) - sentence you want to convert
+    """
     self.sent = sent
     g2p = Pororo(task="g2p", lang="ko")
     r = Romanizer(g2p(self.sent))
