@@ -1,6 +1,5 @@
 import json
 import urllib.request
-from korean_romanizer.romanizer import Romanizer
 from pororo import Pororo
 import argparse
 import tempfile
@@ -11,8 +10,11 @@ import soundfile as sf
 import numpy  # Make sure NumPy is loaded before it is used in the callback
 assert numpy  # avoid "imported but unused" message (W0611)
 import librosa
+import pickle
 import myprosody as mysp
 import re
+from KORtoENG import translate
+from romanizer import KoreanRomanizer
 
 #1. 영상오디오 STT 사용 한국어 문장 출력
 '''
@@ -27,15 +29,6 @@ print('-'*80)
 #tester = KoreanRomanizer()
 #print(tester.romanize('응애 나 아기산붕 제주도 가고싶어 울어'))
 
-class KoreanRomanizer:
-    def __init__(self):
-        self.sent = ""
-        print("Romanizer Initialized")
-    def romanize(self, sent):
-        self.sent = sent
-        g2p = Pororo(task="g2p", lang="ko")
-        r = Romanizer(g2p(self.sent))
-        return r.romanize()
 
 tester = KoreanRomanizer()
 print('-'*80)
@@ -49,22 +42,6 @@ print('-'*80)
 client_id = "PEDMV9jlEiGwITMbVl9S" # 개발자센터에서 발급받은 Client ID 값
 client_secret = "0y7PXg98mI" # 개발자센터에서 발급받은 Client Secret 값
 
-def translate(korstring):
-    string = korstring
-
-    encText = urllib.parse.quote(string)
-    data = "source=ko&target=en&text=" + encText
-    url = "https://openapi.naver.com/v1/papago/n2mt"
-    request = urllib.request.Request(url)
-    request.add_header("X-Naver-Client-Id",client_id)
-    request.add_header("X-Naver-Client-Secret",client_secret)
-    response = urllib.request.urlopen(request, data=data.encode("utf-8"))
-    rescode = response.getcode()
-    if rescode==200:
-        response_body = json.load(response)
-        return response_body['message']['result']['translatedText']
-    else:
-        return "Error Code: {}".format(rescode)
 
 print('영상의 음성 영어로 번역: ',translate('솔직히 다 때려치고 제주도 가서 한달살이 하고싶다.'))
 print('-'*80)
