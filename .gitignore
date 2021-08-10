@@ -1,3 +1,6 @@
-data/audio_data
+data/audio_data/
 
-data/caption
+data/caption/
+
+/espnet/
+/data/preprocessing/processed/
