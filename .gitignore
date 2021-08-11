@@ -1,6 +1,3 @@
-data/audio_data/
-
-data/caption/
-
-/espnet/
+/data/aihub_data/*
 /data/preprocessing/processed/
+.idea
