@@ -1,9 +1,12 @@
 import os
 import shutil
 from aihub_txt_preprocessing import sentence_filter
+import jamotools
+from g2pk import G2p
 
 
 def search(dirname):
+    g2p = G2p()
     try:
         flist = os.listdir(dirname)
         for file in flist:
@@ -18,6 +21,8 @@ def search(dirname):
                     if curfile is None:
                         continue
                     curfile = sentence_filter(curfile)
+                    # G2pk가 설치되는 환경에서 아래 코드의 주석을 해제하면 음소 sequence로까지 변환 가능
+                    # curfile = jamotools.split_syllables(u"{}".format(g2p(curfile)))
                     trans.write(file[:-4] + " " + curfile + "\n")
                 elif file[-4:] == "json":
                     pass
