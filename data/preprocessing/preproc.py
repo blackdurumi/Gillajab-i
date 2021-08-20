@@ -1,5 +1,6 @@
 import os
 import shutil
+import tarfile
 from aihub_txt_preprocessing import sentence_filter
 import jamotools
 from g2pk import G2p
@@ -36,8 +37,20 @@ if __name__ == "__main__":
     processed 폴더에
     kaldi style로 변환하여 저장해주는 py파일
     """
+
+    ############################################################
+    # 아래의 두 경로를 지정해줄 것 #
+    ############################################################
     aihub_data_dir = "../aihub_data"
     proc_dir = os.path.join(os.getcwd(), "processed")
+    ############################################################
+
+    # 압축파일이 있다면 해제
+    for l in os.listdir(aihub_data_dir):
+        if l[-7:]==".tar.gz":
+            tar = tarfile.open(aihub_data_dir+l)
+            tar.extractall(path=aihub_data_dir)
+            tar.close()
 
     # kaldi style을 보면 trans.txt에 wav파일의 id와 text가 저장되어있음. 이를 생성하기 위함
     trans = open("./processed/trans.txt", "w")
