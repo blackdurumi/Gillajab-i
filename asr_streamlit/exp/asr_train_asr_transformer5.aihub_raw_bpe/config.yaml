@@ -194,7 +194,7 @@ specaug: null
 specaug_conf: {}
 normalize: global_mvn
 normalize_conf:
-    stats_file: exp/asr_stats_raw_kr_char/train/feats_stats.npz
+    stats_file: exp/asr_stats_raw/train/feats_stats.npz
 preencoder: null
 preencoder_conf: {}
 encoder: transformer
