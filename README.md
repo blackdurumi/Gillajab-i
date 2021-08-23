@@ -38,4 +38,4 @@
 - <b>Parkdio.py</b> : pitch_contour.ipynb를 바탕으로 비교하고자 하는 두개의 audiofile(path)를 parameter로 넣을경우 plot(vad_plot, cut_plot)들과 array들의 dataframe(show_df), 최종적으로는 acc와 cos_sim을 비교해주는(show_acc) py module이다. <b>(단 두개의 오디오 파일은 22050 sampling을 가지는 wav format file 이여야 한다)</b>
 - <b>sample_data</b> : audio.wav ==> 비교적 바르게 읽은 audio file , user.wav ==> 외국인의 입장에서 읽은 audio file (wav format, 22050 sampling)
 
-### videos : 사용자들이 따라읽을 동영상 클립
+### videos : 사용자들이 따라읽을 동영상 클립,
