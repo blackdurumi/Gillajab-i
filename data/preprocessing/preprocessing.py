@@ -12,7 +12,7 @@ class Unzip:
     A class to unzip tar.gz files which AI hub provides
     """
 
-    def __init__(self, tar_path, to_path):
+    def __init__(self):
         """
         Constructs all the necessary attributes for the Unzip class
         :param tar_path: str
@@ -20,8 +20,8 @@ class Unzip:
         :param to_path: str
             Path to save unzipped files
         """
-        self.tar_path = tar_path
-        self.to_path = to_path
+        self.tar_path = ''
+        self.to_path = ''
 
     def unzip(self, tar_path, to_path):
         """
@@ -53,13 +53,13 @@ class SentenceCleaner:
      A class to remove unnecessary characters in the sentences
      """
 
-    def __init__(self, sentence):
+    def __init__(self):
         """
         Constructs all the necessary attributes for the SentenceCleaner class
         :param sentence: str
             Sentence which needs to be refined
         """
-        self.sentence = sentence
+        self.sentence = ''
 
     def bracket_filter(self, sentence):
         """
@@ -141,7 +141,7 @@ class DataProcessor(SentenceCleaner):
     """
      A class to process label data to be ready to transform into the Kaldi format
      """
-    def __init__(self, path, types, folder, wdir):
+    def __init__(self):
         """
         Constructs all the necessary attributes for the DataProcessor class
         :param path: str
@@ -153,10 +153,10 @@ class DataProcessor(SentenceCleaner):
         :param wdir: str
             Path of directory that audio files are stored
         """
-        self.path = path
-        self.types = types
-        self.folder = folder
-        self.wdir = wdir
+        self.path = ''
+        self.types = ''
+        self.folder = ''
+        self.wdir = ''
 
     def files(self, path):
         """
@@ -366,7 +366,7 @@ class PathProcessor:
     """
      A class to create the file and directory to meet the requirement (Kaldi format)
      """
-    def __init__(self, path, folder):
+    def __init__(self):
         """
         Constructs all the necessary attributes for the DataProcessor class
         :param path: str
@@ -374,8 +374,8 @@ class PathProcessor:
         :param folder: str
             Folder needs to be created
         """
-        self.path = path
-        self.folder = folder
+        self.path = ''
+        self.folder = ''
 
     def mkdir(self, path, folder):
         """
