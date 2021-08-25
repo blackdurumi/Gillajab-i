@@ -1,23 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-preprocessing
-
-Whole process to create files and directories corresponding to required Kaldi format
-
-Required libraries and Python version
-________________________________________________________________
-python 3.7.11
-re 2.2.1
-os
-tarfile
-pandas 1.1.5
-numpy 1.19.5
-csv 1.0
-g2pk please refer to https://github.com/Kyubyong/g2pK to install
-jamotools 0.1.10
-tqdm 4.62.0
-"""
-
 import re
 import os
 import tarfile
@@ -223,7 +203,6 @@ class DataProcessor(SentenceCleaner):
                 for i, file in enumerate(file_list):
                     # read files in the file_list
                     with open(file, 'r') as f2:
-
                         # read lines of the file if exists
                         while True:
                             line = f2.readline()
@@ -353,6 +332,7 @@ class DataProcessor(SentenceCleaner):
         if run_tqdm == True: # see the progress of sentence transformation
             tqdm.pandas() # since we use apply function on pd.Series type
             df.txt = df.txt.progress_apply(lambda _: split_syllables(g2p(self.sentence_filter(_))))
+            
         else:
             df.txt = df.txt.apply(lambda _: split_syllables(g2p(self.sentence_filter(_))))
 
@@ -412,6 +392,7 @@ class PathProcessor:
             # create data folder
             os.mkdir('data')
             print('data folder created')
+            
         except FileExistsError: # if data folder exists
             print('data folder already exists')
 
@@ -420,6 +401,7 @@ class PathProcessor:
         try:
             os.mkdir(path) # create required folder under data folder
             print(f'{folder} folder created')
+            
         except FileExistsError:
             print(f'{folder} folder already exists')
 
@@ -469,6 +451,7 @@ class PathProcessor:
                         break
                     # write the new file
                     f1.write(line)
+                    
         # close the file
         f2.close()
         f1.close()
