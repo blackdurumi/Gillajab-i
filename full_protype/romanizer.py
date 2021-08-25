@@ -6,8 +6,8 @@ from korean_romanizer.romanizer import Romanizer
 from pororo import Pororo
 
 class KoreanRomanizer:
-  def __init__(self):
-    self.sent = ""
+  def __init__(self, sent):
+    self.sent = sent
     print("Romanizer Initialized")
   def romanize(self, sent):
     """
