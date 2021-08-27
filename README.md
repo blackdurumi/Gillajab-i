@@ -10,32 +10,26 @@
 - 정세연 (https://github.com/Seyeon-Jeong)
 
 ## 프로젝트 소개(About Project)
-+추후 pdf
-
-## 레포지토리 구성(About Repository)
-
-### STT : Sound To Text
-#### text2phoneme : 음소 sequence로 변환
-- stt.py : NAVER Papago를 이용한 음성인식 모듈
-
-### asr_streamlit
-
-### data : 데이터 수집
-- pytube: pytube library를 사용하여 유튜브 영상에서 음원추출
-- pytube_GUI: pytube와 tkinter를 사용하여 url입력후 버튼을 누르면 자동으로 음원을 추출해주는 GUI환경 구성
-- crawling: pytube와 selenium, bs4를 사용하여 유튜브 검색 후 영상에서 음원, 자막 추출
-
-### document : 프리젠테이션 파일, 아이디어 기획 문서 등
-
-### full_protype : prototype
-- full_prototype_ver_1.py : 서비스 프로토타입(to be updated)
-- KORtoENG.py : 네이버 파파고 api 이용한 한글->영어 번역 모듈
-- romanizer.py : korean_romanizer와 pororo 라이브러리를 사용, 한글->로마자 표기 번역 모듈
-
-### pitch_contour: 음성데이터들의 pitch_contour 비교
-- <b>pitch_contour_1</b> : 기존의 음성데이터와 새롭게 녹음한 음성데이터 amplitude 시각화 & spectorgram, intensity, pitch 비교해보기
-- <b>pitch_contour_2</b> : pitch_contour_1에서 진행해보았던 내용들을 함수로 일반화시켜 보았고, 추가로 차이가 큰 부분들을 error part를 가정하여 해당하는 time들과 slicing되어진 sample값들을 구하기(ipd.Audio함수를 통해 error part를 직접 들어보았다.)
-- <b>Parkdio.py</b> : pitch_contour.ipynb를 바탕으로 비교하고자 하는 두개의 audiofile(path)를 parameter로 넣을경우 plot(vad_plot, cut_plot)들과 array들의 dataframe(show_df), 최종적으로는 acc와 cos_sim을 비교해주는(show_acc) py module이다. <b>(단 두개의 오디오 파일은 22050 sampling을 가지는 wav format file 이여야 한다)</b>
-- <b>sample_data</b> : audio.wav ==> 비교적 바르게 읽은 audio file , user.wav ==> 외국인의 입장에서 읽은 audio file (wav format, 22050 sampling)
-
-### videos : 사용자들이 따라읽을 동영상 클립,
+![0001](https://user-images.githubusercontent.com/32546264/131172595-667960d6-f99f-4268-9fee-6873afa55e2c.jpg)
+![0004](https://user-images.githubusercontent.com/32546264/131172650-11f5a631-19a7-4fe9-a1b2-41e7a9103716.jpg)
+![0005](https://user-images.githubusercontent.com/32546264/131172659-f02f9380-8dbf-45cc-bc26-99f29be8dffe.jpg)
+![0006](https://user-images.githubusercontent.com/32546264/131172664-d121335e-a55e-478b-b24f-dfeecae9536a.jpg)
+![0007](https://user-images.githubusercontent.com/32546264/131172671-1c3902bb-8e42-456c-b4a4-ad44a47b5628.jpg)
+![0009](https://user-images.githubusercontent.com/32546264/131172677-de460d58-24ee-4177-8025-7ed22776d242.jpg)
+![0010](https://user-images.githubusercontent.com/32546264/131172690-4d552d31-12e4-45a2-94ec-4f9ecdc0bc6e.jpg)
+![0011](https://user-images.githubusercontent.com/32546264/131172701-236e9368-efaa-462a-8687-fe48862c8b60.jpg)
+![0012](https://user-images.githubusercontent.com/32546264/131172708-f2f299f6-6f31-4cdb-9871-56067eb9559c.jpg)
+![0015](https://user-images.githubusercontent.com/32546264/131172732-0ad35ef1-89d3-46a8-8a05-db03d14c5e74.jpg)
+![0016](https://user-images.githubusercontent.com/32546264/131172737-65daf42e-7f0f-4266-8ac4-11cefb679b8f.jpg)
+![0017](https://user-images.githubusercontent.com/32546264/131172742-ca124560-4b6b-4594-ba4b-fed44bd78cf3.jpg)
+![0018](https://user-images.githubusercontent.com/32546264/131172746-5e9b4294-2929-4617-b200-11f15bf47ded.jpg)
+![0019](https://user-images.githubusercontent.com/32546264/131172749-29e0bb81-7176-4885-9877-e4aeacf66d77.jpg)
+![0020](https://user-images.githubusercontent.com/32546264/131172754-04491e66-9dd5-46b1-9579-d662805cbf25.jpg)
+![0021](https://user-images.githubusercontent.com/32546264/131172757-69eb661f-4974-466c-a601-a6e4a22680f9.jpg)
+![0022](https://user-images.githubusercontent.com/32546264/131172759-c31298fc-352b-4001-915a-be860e5465fd.jpg)
+![0023](https://user-images.githubusercontent.com/32546264/131172767-fc4ef27c-db18-437c-8b19-8a111069760f.jpg)
+![0024](https://user-images.githubusercontent.com/32546264/131172804-cc85d9fa-f132-435a-bfc9-f05728c019c1.jpg)
+![0026](https://user-images.githubusercontent.com/32546264/131172808-34d4b47c-2ee7-4f9c-8fcf-dcac0f8319a4.jpg)
+![0027](https://user-images.githubusercontent.com/32546264/131172811-71396294-214d-4be4-9a43-ad4ad706ced7.jpg)
+![0028](https://user-images.githubusercontent.com/32546264/131172821-dc7cf83f-a5c9-4623-9e9a-bd8d41e4496f.jpg)
+![0029](https://user-images.githubusercontent.com/32546264/131172828-a57975cb-4bab-4f1d-8aa4-654bf3fe3bbc.jpg)
