@@ -1,6 +1,6 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&color=auto&height=250&section=header&text=📕2021%20데이터청년캠퍼스%20고려대학교%20과정%204조&fontSize=40)
 
-# 외국인을 위한 한류 콘텐츠 기반 발음 평가 서비스
+# 길라잡이 : 외국인을 위한 한류 콘텐츠 기반 발음 평가 서비스
 
 ## 팀 소개(Team Members)
 - 박근형 (https://github.com/park-geun-hyeong)
