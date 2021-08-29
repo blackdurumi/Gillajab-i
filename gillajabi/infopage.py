@@ -7,6 +7,7 @@ model = Image.open('./images/gillajabi_border.png')
 stft = Image.open('./images/stft.png')
 cnn = Image.open('./images/cnn.png')
 stft_mel = Image.open('./images/stft_mel.png')
+levenshtein = Image.open('./images/levenshtein.png')
 
 def info():
 
@@ -87,5 +88,15 @@ thus allowing the model to actually "read the audio!"
         """
 Then, the output vectors of the CNN model is fed through 12 layers of Encoding, and 6 Layers of Decoding,
 and results in a model that is able to detect the phoneme sequence of the Korean Spoken Language!
+        """
+    )
+
+    st.image(levenshtein)
+
+    st.markdown(
+        """
+We used an algorithm called Levenshtein distance to calculate the Character Error rate
+and where the user's phoneme sequence was different from the ground truth (phoneme sequence of
+the video). Thus Gillajab-i was born!
         """
     )
