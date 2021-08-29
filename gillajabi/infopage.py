@@ -75,8 +75,8 @@ We used ESPNet, an end-to-end speech recognition toolkit to train our model.
 
     st.markdown(
         """
-First, we collected 1000 hours of raw Korean speaking data, and used Short-time Fourier transforming to
-convert the audio data into Mel-Spectrograms. The Mel-Spectrograms were then fed into a CNN,
+First, we collected 1000 hours of raw Korean speaking preprocessing, and used Short-time Fourier transforming to
+convert the audio preprocessing into Mel-Spectrograms. The Mel-Spectrograms were then fed into a CNN,
 thus allowing the model to actually "read the audio!"
         """
 

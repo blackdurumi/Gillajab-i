@@ -38,7 +38,7 @@ class Unzip:
         folder = re.findall(r'(/[A-Za-z]+?)/$', self.tar_path)[0] # Validation or Training
 
         for path, dir, filenames in os.walk(self.tar_path):
-            # Get only label data
+            # Get only label preprocessing
             files = list(filter(lambda filename: '[라벨]' in filename and 'tar.gz' in filename, filenames))
 
         for _ in files:
@@ -139,7 +139,7 @@ class SentenceCleaner:
 
 class DataProcessor(SentenceCleaner):
     """
-     A class to process label data to be ready to transform into the Kaldi format
+     A class to process label preprocessing to be ready to transform into the Kaldi format
      """
     def __init__(self):
         """
@@ -187,7 +187,7 @@ class DataProcessor(SentenceCleaner):
         :param folder: str
             Folder that file exists; either 'Training' or 'Validation'
         :return: filepath: str
-            Path of created file in the function, will use it when making data frame
+            Path of created file in the function, will use it when making preprocessing frame
         """
         self.types = types
 
@@ -222,13 +222,13 @@ class DataProcessor(SentenceCleaner):
 
     def mkdf(self, path, wdir):
         """
-        Makes data frame, add columns and modify path of audio files to transform files
+        Makes preprocessing frame, add columns and modify path of audio files to transform files
         :param path: str
             Path of directory where label file exists
         :param wdir: str
             Path of directory that audio files are stored
         :return: df: pd.DataFrame
-            data frame made of concatenated files
+            preprocessing frame made of concatenated files
         """
         folder = path.split('/')[-1].split('_')[0] # Training or Validation
 
@@ -265,7 +265,7 @@ class DataProcessor(SentenceCleaner):
 
     def merge_df(self, script_df, metadata_df, on='path'):
         """
-        Merges script data frame and metadata data frame for spk2gender
+        Merges script preprocessing frame and metadata preprocessing frame for spk2gender
         :param script_df: pd.DataFrame
             Data Frame contains all script files made by mkdf function
         :param metadata_df: pd.DataFrame
@@ -273,7 +273,7 @@ class DataProcessor(SentenceCleaner):
         :param on: str
             Key columns to merge(default: 'path')
         :return: merged_df: pd.DataFrame
-            Sorted data frame contains every column need
+            Sorted preprocessing frame contains every column need
         """
         merged_df = script_df.merge(metadata_df, how='inner', on=on) # inner join to get
         merged_df.sort_values(by='name', inplace=True) # sort values in ascending order(Kaldi format requires to sort
@@ -282,7 +282,7 @@ class DataProcessor(SentenceCleaner):
 
     def final_df(self, path, folder, wdir):
         """
-        Runs concat_data, mkdf, merge_df and returns complete data frame
+        Runs concat_data, mkdf, merge_df and returns complete preprocessing frame
         :param path: str
             Path of directory where label file exists
         :param folder: str
@@ -290,18 +290,18 @@ class DataProcessor(SentenceCleaner):
         :param wdir: str
             Path of directory that audio files are stored
         :return: df: pd.DataFrame
-            Complete data frame
+            Complete preprocessing frame
         """
 
         # concatenate files into one file
         scripts = self.concat_data(path, 'scripts', folder)
         metadata = self.concat_data(path, 'metadata', folder)
 
-        # create data frame
+        # create preprocessing frame
         s_df = self.mkdf(scripts, wdir)
         m_df = self.mkdf(metadata, wdir)
 
-        # merge data frame and sort values in ascending order
+        # merge preprocessing frame and sort values in ascending order
         df = self.merge_df(s_df, m_df)
 
         return df
@@ -341,11 +341,11 @@ class DataProcessor(SentenceCleaner):
     # run only when folder is Validation
     def split_df(self, validation_df):
         """
-        Splits validation_df into test and valid data frames
+        Splits validation_df into test and valid preprocessing frames
         :param validation_df: pd.DataFrame
             Data frame of files in Validation folder which needs to be split
-        :return: test_df, val_df : tuple contains data frame
-            indexing needed to work on the each data frame
+        :return: test_df, val_df : tuple contains preprocessing frame
+            indexing needed to work on the each preprocessing frame
         """
         # test: 'play', 'shopping' category, valid: the other categories
         test_df = validation_df.loc[validation_df.name.isin(list(filter(lambda _: 'play' in _ or 'shopping' in _, validation_df.name)))]
@@ -389,17 +389,17 @@ class PathProcessor:
         # change directory
         os.chdir(path)
         try:
-            # create data folder
-            os.mkdir('data')
-            print('data folder created')
+            # create preprocessing folder
+            os.mkdir('preprocessing')
+            print('preprocessing folder created')
             
-        except FileExistsError: # if data folder exists
-            print('data folder already exists')
+        except FileExistsError: # if preprocessing folder exists
+            print('preprocessing folder already exists')
 
-        os.chdir('./data') # change directory to data
+        os.chdir('./preprocessing') # change directory to preprocessing
         path = './' + folder
         try:
-            os.mkdir(path) # create required folder under data folder
+            os.mkdir(path) # create required folder under preprocessing folder
             print(f'{folder} folder created')
             
         except FileExistsError:
@@ -413,9 +413,9 @@ class PathProcessor:
         :param df: pd.DataFrame
             Data frame used to make the file
         :param col1: str
-            First column in the file (should exist in data frame)
+            First column in the file (should exist in preprocessing frame)
         :param col2: str
-            Second column in the file (should exist in data frame)
+            Second column in the file (should exist in preprocessing frame)
         :param filename: str
             File name to save
         :return: None
