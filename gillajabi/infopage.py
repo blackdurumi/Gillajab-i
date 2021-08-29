@@ -6,6 +6,7 @@ topik = Image.open('./images/topik2.png')
 model = Image.open('./images/gillajabi_border.png')
 stft = Image.open('./images/stft.png')
 cnn = Image.open('./images/cnn.png')
+stft_mel = Image.open('./images/stft_mel.png')
 
 def info():
 
@@ -74,19 +75,13 @@ We used ESPNet, an end-to-end speech recognition toolkit to train our model.
     st.markdown(
         """
 First, we collected 1000 hours of raw Korean speaking data, and used Short-time Fourier transforming to
-convert the audio data into Mel-Spectrograms.
+convert the audio data into Mel-Spectrograms. The Mel-Spectrograms were then fed into a CNN,
+thus allowing the model to actually "read the audio!"
         """
 
     )
-    st.image(stft)
+    st.image(stft_mel)
 
-    st.markdown(
-        """
-Then, the Mel-Spectrogram image was fed into a CNN model.
-        """
-    )
-
-    st.image(cnn)
 
     st.markdown(
         """

@@ -3,9 +3,9 @@ from streamlit import cli as stcli
 import streamlit as st
 from main_page import mainpage
 from infopage import info
-#test
+
 def gillajabi_app():
-    #st.set_page_config(layout="wide")
+
     st.markdown("""
         <style>
         .big-font {
