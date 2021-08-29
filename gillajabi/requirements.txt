@@ -1,3 +1,10 @@
+#This is the basic requirements for running Gillajab-i.
+#Currently, the dependencies of python-mecab-ko and the g2pk module for Pororo is a bit shaky,
+#So we advise to add the mecab/dic/mecab-ko-dic folder (in our repository) to your local
+#env/lib folder.
+#DO NOT add the mecab folder to env/lib/python, but add it to the env/lib folder.
+#for the full virtual environment setup, contact @ github.com/tomtom1103
+
 absl-py==0.13.0
 alabaster==0.7.12
 altair==4.1.0
