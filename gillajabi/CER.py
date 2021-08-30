@@ -129,7 +129,7 @@ def CER(ground_truth, users):
     print_md()
 
 
-    append_md(Romanizer(ans).romanize(), "black")
+    append_md(Romanizer(ans).romanize(), "blue")
     print_md()
 
     for i, val in enumerate(usr):
