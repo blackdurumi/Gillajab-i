@@ -137,7 +137,7 @@ korean-romanizer==0.22
 kss==2.5.1
 librosa==0.8.1
 llvmlite==0.37.0
-lxml==4.6.3
+lxml>=4.6.5
 marisa-trie==0.7.7
 Markdown==3.3.4
 MarkupSafe==2.0.1
