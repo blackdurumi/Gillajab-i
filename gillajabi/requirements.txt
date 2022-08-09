@@ -242,7 +242,7 @@ sphinxcontrib-jsmath==1.0.1
 sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.5
 stevedore==3.4.0
-streamlit==0.87.0
+streamlit==1.11.1
 subprocess32==3.5.4
 tabulate==0.8.9
 tensorboard==2.6.0
